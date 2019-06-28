@@ -1,0 +1,61 @@
+n=list(map(int,input().strip().split())) 
+l=[]
+m=[]
+s=[]
+ans=[]
+same=[]
+sum=0
+for t in range(0,len(n),1):
+  if n[t]>0:
+    sum+=1
+    l.append(n[t])
+    if t==len(n)-1:
+      m.append(sum)
+  else:
+    m.append(sum)
+    sum=0
+#print("l =",l)
+#print('m =',m)
+i=0
+for t in range(0,len(m)):
+  j=0  
+  sum=0
+  while j<m[t]:
+    sum=sum+l[i]
+    j+=1
+    i+=1
+  if sum not in s:
+    s.append(sum)
+  else:
+    s.append(0)
+#print("sum between negative numbers ->",s)
+ind=s.index(max(s))
+for t in range(0,len(s)):
+  if s[t]==0:
+    ind1=s.index(s[t])
+    if m[ind1]<m[ind]:
+      ind=ind1
+      
+i=0
+for t in range(0,len(m)):
+  j=0  
+  if t==ind:
+    while j<m[t]:
+      ans.append(l[i])
+      j+=1
+      i+=1
+  else:
+    while j<m[t]:
+      j+=1
+      i+=1
+print(ans)
+
+
+'''
+test case:
+
+ 1 : 20 5 2 -1 6 7 8 -2 5 6 2 6 -5 20
+ 2 : 1 2 3 -1 6 -2 3 3
+ 3 : 1 2 3 -1 6 -2 3 3
+ 
+ '''
