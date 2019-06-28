@@ -11,10 +11,13 @@ while i<len(str1):
     i+=1
 print(str2)
 
+
 '''
 Test Case:
 1: 
   input -> AAABAAA
   ouput -> 3A1B3A
-
+2:
+  input -> AAAAAAAAAAABBCCCCCCCCCC
+  output -> 11A2B10C
 '''
